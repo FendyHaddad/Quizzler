@@ -32,9 +32,9 @@ class Quizpage extends StatefulWidget {
 class _QuizpageState extends State<Quizpage> {
   List<Icon> scoreKeeper = [];
   List<String> questions = [
-    'You can lead a cow downstairs but not upstairs',
-    'Approximately one quarter of human bones are in the feet',
-    'A slug\'s blood is green'
+    'You can lead a cow downstairs but not upstairs.',
+    'Approximately one quarter of human bones are in the feet.',
+    'A slug\'s blood is green.'
   ];
 
   int questionNumber = 0;
@@ -121,3 +121,5 @@ class _QuizpageState extends State<Quizpage> {
     );
   }
 }
+
+//Added an empty 'List<Icon>' called scoreKeeper and 'List<String>' called questions.
