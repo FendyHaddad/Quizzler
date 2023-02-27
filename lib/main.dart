@@ -30,6 +30,16 @@ class Quizpage extends StatefulWidget {
 }
 
 class _QuizpageState extends State<Quizpage> {
+  List<Icon> scoreKeeper = [];
+  List<String> questions = [
+    'You can lead a cow downstairs but not upstairs',
+    'Approximately one quarter of human bones are in the feet',
+    'A slug\'s blood is green'
+  ];
+
+  int questionNumber = 0;
+
+>>>>>>> 1b74770 (Initial Commit)
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -42,7 +52,11 @@ class _QuizpageState extends State<Quizpage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
+<<<<<<< HEAD
                 'This is where the question text will go',
+=======
+                questions[questionNumber],
+>>>>>>> 1b74770 (Initial Commit)
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -56,7 +70,15 @@ class _QuizpageState extends State<Quizpage> {
           child: Padding(
             padding: EdgeInsets.all(15.0),
             child: ElevatedButton(
+<<<<<<< HEAD
               onPressed: () {},
+=======
+              onPressed: () {
+                setState(() {
+                  questionNumber++;
+                });
+              },
+>>>>>>> 1b74770 (Initial Commit)
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
               ),
@@ -70,7 +92,15 @@ class _QuizpageState extends State<Quizpage> {
           child: Padding(
             padding: EdgeInsets.all(15.0),
             child: ElevatedButton(
+<<<<<<< HEAD
               onPressed: () {},
+=======
+              onPressed: () {
+                setState(() {
+                  questionNumber++;
+                });
+              },
+>>>>>>> 1b74770 (Initial Commit)
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,
               ),
@@ -80,7 +110,13 @@ class _QuizpageState extends State<Quizpage> {
             ),
           ),
         ),
+<<<<<<< HEAD
         //TODO: Add a Row here as your score keeper
+=======
+        Row(
+          children: scoreKeeper,
+        ),
+>>>>>>> 1b74770 (Initial Commit)
       ],
     );
   }
