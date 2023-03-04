@@ -1,6 +1,9 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print, import_of_legacy_library_into_null_safe
 
 import 'package:flutter/material.dart';
+import 'quiz_brain.dart';
+
+QuizBrain quizBrain = QuizBrain();
 
 void main() => runApp(const Quizzler());
 
@@ -30,13 +33,16 @@ class Quizpage extends StatefulWidget {
 }
 
 class _QuizpageState extends State<Quizpage> {
-  List<Icon> scoreKeeper = [];
-  List<String> questions = [
-    'You can lead a cow downstairs but not upstairs',
-    'Approximately one quarter of human bones are in the feet',
-    'A slug\'s blood is green'
+  List<Icon> scoreKeeper = [
+    Icon(
+      Icons.check,
+      color: Colors.green,
+    ),
+    Icon(
+      Icons.close,
+      color: Colors.red,
+    )
   ];
-  int questionNumber = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +56,7 @@ class _QuizpageState extends State<Quizpage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questions[questionNumber],
+                quizBrain.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -65,8 +71,14 @@ class _QuizpageState extends State<Quizpage> {
             padding: EdgeInsets.all(15.0),
             child: ElevatedButton(
               onPressed: () {
+                bool correctAnswer = quizBrain.getAnswer();
+                if (correctAnswer == true) {
+                  print('You Got It Right');
+                } else {
+                  print('You Got It Wrong');
+                }
                 setState(() {
-                  questionNumber++;
+                  quizBrain.nextQuestion();
                 });
               },
               style: ElevatedButton.styleFrom(
@@ -83,8 +95,14 @@ class _QuizpageState extends State<Quizpage> {
             padding: EdgeInsets.all(15.0),
             child: ElevatedButton(
               onPressed: () {
+                bool correctAnswer = quizBrain.getAnswer();
+                if (correctAnswer == false) {
+                  print('You Got It Right');
+                } else {
+                  print('You Got It Wrong');
+                }
                 setState(() {
-                  questionNumber++;
+                  quizBrain.nextQuestion();
                 });
               },
               style: ElevatedButton.styleFrom(
